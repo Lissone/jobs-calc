@@ -1,13 +1,7 @@
-const express = require('express')
-const server = express()
-const routes = require('./routes.js')
+const app = require('./app')
 
-server.set('view engine', 'ejs')
+const port = 3000
 
-server.use(express.static("public"))
-
-server.use(routes)
-
-server.listen(3000, () => {
-  console.log('Servidor iniciado!')
+app.listen(port, () => {
+  console.log(`Listening on port: ${port}`)
 })
