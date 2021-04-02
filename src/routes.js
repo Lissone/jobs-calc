@@ -1,7 +1,6 @@
 const express = require('express')
 
 const routes = express.Router()
-const basePath = __dirname + '/pages/'
 
 const Profile = {
   data: {
@@ -15,7 +14,7 @@ const Profile = {
   },
   controllers: {
     index(req, res) {
-      return res.render(basePath + 'profile', { profile: Profile.data })
+      return res.render('profile', { profile: Profile.data })
     },
     update(req, res) {
       const data = req.body
@@ -65,7 +64,7 @@ const Job = {
         }
       })
     
-      return res.render(basePath + 'index', { jobs: updatedJobs, profile: Profile.data })
+      return res.render('index', { jobs: updatedJobs, profile: Profile.data })
     },
     post (req, res) {
       const lastId = Job.data.length === 0 ? 1 : Job.data.length+1
@@ -82,7 +81,7 @@ const Job = {
       return res.redirect('/')
     },
     create (req, res) {
-      return res.render(basePath + 'job')
+      return res.render('job')
     },
     editPage(req, res) {
       const jobId = req.params.id
@@ -94,7 +93,7 @@ const Job = {
       
       obj.budget = Job.services.calcBudget(obj, Profile.data["value-hour"])
       
-      return res.render(basePath + 'job-edit', { job: obj })
+      return res.render('job-edit', { job: obj })
     },
     update(req, res) {
       const jobId = req.params.id
