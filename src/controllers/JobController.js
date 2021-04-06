@@ -11,15 +11,13 @@ module.exports = {
     const jobs = Job.get()
     const lastId = jobs.length === 0 ? 1 : jobs.length+1
 
-    const job = {
+    Job.add({
       id: lastId,
       name: req.body.name,
       'daily-hours': req.body['daily-hours'],
       'total-hours': req.body['total-hours'],
       created_at: Date.now()
-    }
-  
-    jobs.push(job)
+    })
 
     return res.redirect('/')
   },
@@ -72,9 +70,7 @@ module.exports = {
     const jobs = Job.get()
     const jobId = req.params.id
 
-    const jobsFiltered = jobs.filter(job => Number(job.id) !== Number(jobId))
-
-    Job.set(jobsFiltered)
+    Job.delete(jobId)
 
     return res.redirect('/')
   }
