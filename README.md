@@ -3,9 +3,9 @@
 </h1>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#descricao">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#layout">Layout</a>
 </p>
 
 <p align="center">
@@ -39,3 +39,19 @@ O JobsCalc é uma aplicação de estimativa de cálculo para projetos freelancer
 ## Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/s4fytPFbDiSkv4GPSfKaLE/Jobs-Planning).
+
+## Instalando Dependencias
+
+```bash
+git clone https://github.com/Lissone/discover-jobsCalc.git
+cd discover-jobsCalc
+yarn
+npm run
+```
+
+## Executar projeto
+
+```bash
+yarn dev
+npm run dev
+```
