@@ -1,7 +1,7 @@
 module.exports = {
   remainingDays(job) {
-    const createdDate = new Date(job.created_at)
-    const remaningDays = (job["total-hours"] / job["daily-hours"]).toFixed()
+    const createdDate = new Date(Number(job.created_at))
+    const remaningDays = (job.total_hours / job.daily_hours).toFixed()
     const dueDay = createdDate.getDate() + Number(remaningDays) //Dia da entrega
     const dueDateInMs = createdDate.setDate(dueDay)
     const timeDiffInMs = dueDateInMs - Date.now()
@@ -10,7 +10,8 @@ module.exports = {
   
     return dayDiff
   },
+
   calcBudget(job, valueHour) {
-    return valueHour * job["total-hours"]
+    return valueHour * job.total_hours
   }
 }

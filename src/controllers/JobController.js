@@ -1,26 +1,15 @@
-const Job = require('../models/Job')
-const Profile = require('../models/Profile')
+const JobRepository = require('../repositories/JobRepository')
+const ProfileRepository = require('../repositories/ProfileRepository')
 const JobUtils = require('../utils/JobUtils')
 
 module.exports = {
-  index (req, res) {
+  renderJob (req, res) {
     return res.render('job')
   },
-  
-  async post (req, res) {
-    await Job.create({
-      name: req.body.name,
-      'daily-hours': req.body['daily-hours'],
-      'total-hours': req.body['total-hours'],
-      created_at: Date.now()
-    })
 
-    return res.redirect('/')
-  },
-
-  async edit(req, res) {
-    const jobs = await Job.get()
-    const profile = await Profile.get()
+  async renderEditJob (req, res) {
+    const jobs = await JobRepository.getAll()
+    const profile = await ProfileRepository.get()
     const jobId = req.params.id
 
     const obj = jobs.find(job => job.id == jobId)
@@ -28,29 +17,43 @@ module.exports = {
     if(!obj) 
       res.send('Job not found!')
     
-    obj.budget = JobUtils.calcBudget(obj, profile["value-hour"])
+    obj.budget = JobUtils.calcBudget(obj, profile.value_hour)
     
     return res.render('job-edit', { job: obj })
   },
+  
+  async create (req, res) {
+    const data = req.body
 
-  async update(req, res) {
+    await JobRepository.create({
+      name: data.name,
+      daily_hours: data.daily_hours,
+      total_hours: data.total_hours,
+      created_at: Date.now().toString()
+    })
+    
+    return res.redirect('/')
+  },
+
+  async update (req, res) {
     const jobId = req.params.id
+    const data = req.body
     
     const updatedJob = {
-      name: req.body.name,
-      "total-hours": req.body["total-hours"],
-      "daily-hours": req.body["daily-hours"]
+      name: data.name,
+      total_hours: data.total_hours,
+      daily_hours: data.daily_hours
     }
 
-    await Job.update(jobId, updatedJob)
+    await JobRepository.update(jobId, updatedJob)
 
     res.redirect('/')
   },
 
-  async delete(req, res) {
+  async delete (req, res) {
     const jobId = req.params.id
 
-    await Job.delete(jobId)
+    await JobRepository.delete(jobId)
 
     return res.redirect('/')
   }

@@ -1,4 +1,4 @@
-const { EntitySchema} = require('typeorm')
+const { EntitySchema } = require('typeorm')
 
 module.exports = new EntitySchema ({
   name: 'Jobs',
@@ -19,7 +19,7 @@ module.exports = new EntitySchema ({
       type: 'int'
     },
     created_at: {
-      type: 'datetime'
+      type: 'varchar'
     }
   }
 })

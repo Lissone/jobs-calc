@@ -5,13 +5,13 @@ const DashBoardController = require('../controllers/DashBoardController')
 
 const routes = express.Router()
 
-routes.get('/', DashBoardController.index)
-routes.get('/job', JobController.index)
-routes.post('/job', JobController.post)
-routes.get('/job/:id', JobController.edit)
+routes.get('/', DashBoardController.renderDashBoard)
+routes.get('/job', JobController.renderJob)
+routes.post('/job', JobController.create)
+routes.get('/job/:id', JobController.renderEditJob)
 routes.post('/job/:id', JobController.update)
 routes.post('/job/delete/:id', JobController.delete)
-routes.get('/profile', ProfileController.index)
+routes.get('/profile', ProfileController.renderProfile)
 routes.post('/profile', ProfileController.update)
 
 module.exports = routes
