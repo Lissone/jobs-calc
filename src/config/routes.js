@@ -1,7 +1,7 @@
 const express = require('express')
-const ProfileController = require('./controllers/ProfileController')
-const JobController = require('./controllers/JobController')
-const DashBoardController = require('./controllers/DashBoardController')
+const ProfileController = require('../controllers/ProfileController')
+const JobController = require('../controllers/JobController')
+const DashBoardController = require('../controllers/DashBoardController')
 
 const routes = express.Router()
 
