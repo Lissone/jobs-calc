@@ -12,6 +12,12 @@ module.exports = {
     return ret
   },
 
+  async create (data) {
+    const obj = await this.repository.create(data)
+
+    await this.repository.save(obj)
+  },
+  
   async update (id, data) {
     data.id = id
 

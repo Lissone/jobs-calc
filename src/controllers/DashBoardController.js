@@ -1,3 +1,4 @@
+const Profile = require('../entities/Profile')
 const JobRepository = require('../repositories/JobRepository')
 const ProfileRepository = require('../repositories/ProfileRepository')
 const JobUtils = require('../utils/JobUtils')
@@ -5,7 +6,21 @@ const JobUtils = require('../utils/JobUtils')
 module.exports = {
   async renderDashBoard (req, res) {
     const jobs = await JobRepository.getAll()
-    const profile = await ProfileRepository.get()
+    let profile = await ProfileRepository.get()
+    
+    if(profile === undefined) {
+      await ProfileRepository.create({
+        name: 'Leonardo Lissone',
+        avatar: 'https://avatars.githubusercontent.com/u/57052110?s=400&u=3f60caf81f05629983bed45d9eaa3663fd90a390&v=4',
+        monthly_budget: 3000,
+        days_per_week: 5,
+        hours_per_day: 5,
+        vacation_per_year: 4,
+        value_hour: 70
+      })
+
+      profile = await ProfileRepository.get()
+    }
 
     let statusCount = {
       total: jobs.length,

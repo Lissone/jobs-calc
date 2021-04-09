@@ -26,9 +26,7 @@ module.exports = {
     const data = req.body
 
     await JobRepository.create({
-      name: data.name,
-      daily_hours: data.daily_hours,
-      total_hours: data.total_hours,
+      ...data,
       created_at: Date.now().toString()
     })
     
