@@ -20,9 +20,11 @@
   <img alt="dev.finances" src=".github/jobscalc.png" width="100%">
 </p>
 
-## Tecnologias
+## Descrição
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+O JobsCalc é uma aplicação de estimativa de cálculo para projetos freelancer, onde é possível cadastrar e excluir jobs (projetos), obtendo uma estimativa de custo de cada job. Além disso, é possível traçar o valor da hora da pessoa que estará usando o sistema.
+
+## Tecnologias
 
 - HTML
 - CSS
@@ -33,10 +35,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - TypeORM
 - SQLServer
 
-## Descrição
-
-O JobsCalc é uma aplicação de estimativa de cálculo para projetos freelancer, onde é possível cadastrar e excluir jobs (projetos), obtendo uma estimativa de custo de cada job. Além disso, é possível traçar o valor da hora da pessoa que estará usando o sistema.
-
 ## Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/s4fytPFbDiSkv4GPSfKaLE/Jobs-Planning).
@@ -44,9 +42,10 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 ## Instalando Dependencias
 
 ```bash
-git clone https://github.com/Lissone/discover-jobsCalc.git
+git clone "https://github.com/Lissone/discover-jobsCalc.git"
 cd discover-jobsCalc
 yarn
+#or
 npm run
 ```
 
@@ -54,5 +53,6 @@ npm run
 
 ```bash
 yarn dev
+#or
 npm run dev
 ```
