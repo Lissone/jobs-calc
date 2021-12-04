@@ -33,7 +33,7 @@
 
 JobsCalc is a calculation estimation application for freelance projects, where it is possible to register and exclude jobs (projects), obtaining a cost estimate for each job. Furthermore, it is possible to plot the time value of the person who will be using the system.
 
-Project developed in my first rocketseat marathon, in a way that changed my way of seeing my professional career and my motivation to study. Taught by Mayk Brito and Jakeliny Gracielly from Discover.
+Project developed in my first rocketseat marathon, in a way that changed my way of seeing my professional career and my motivation to study. Taught by Mayk Brito and Jakeliny Gracielly from Discover 2021.
 
 ## Requirements
 
